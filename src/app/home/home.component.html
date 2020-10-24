@@ -1,1 +1,24 @@
-<p>home works!</p>
+<div class="content-table">
+    <table>
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Identificación</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Usuario</th>
+                <th>Cargo</th>
+            </tr>
+        </thead>
+        <tbody *ngFor="let employee of employees; let i = index">
+            <tr>
+                <td>{{i + 1}}</td>
+                <td>{{employee.identificacion}}</td>
+                <td>{{employee.nombre}}</td>
+                <td>{{employee.apellido}}</td>
+                <td>{{employee.usuarioRed}}</td>
+                <td>{{employee.cargo}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

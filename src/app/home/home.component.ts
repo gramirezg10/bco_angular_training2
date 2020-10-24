@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ServiceService } from '../service/service.service';
+import { Employees } from '../models/employees.model';
+import { ThrowStmt } from '@angular/compiler';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +10,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  public employees: Employees[] = [];
+
+  constructor(
+    public _service: ServiceService
+  ) { }
 
   ngOnInit(): void {
+    this._service.getAllData().subscribe(
+      res => this.organize(res)
+    )
+  }
+
+  organize(data){
+    this.employees = data;
   }
 
 }
